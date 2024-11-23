@@ -5,8 +5,8 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-jamai = JamAI(api_key=os.getenv("JAM_API_KEY"), project_id=os.getenv("JAM_PROJECT_ID"))
-UNSPLASH_ACCESS_KEY = os.getenv("UNSPLASH_ACCESS_KEY")
+jamai = JamAI(api_key=st.secrets["JAM_API_KEY"], project_id=st.secrets["JAM_PROJECT_ID"])
+UNSPLASH_ACCESS_KEY = st.secrets["UNSPLASH_ACCESS_KEY"]
 
 # Helper function to fetch photos from Unsplash
 def fetch_photo(query):
