@@ -55,13 +55,13 @@ stress_levels = st.slider("Rate your stress level:", 0,10)
 dream_tendency = st.slider("How often do you dream per week?", 0,7,help="Choose 7 if you dream more than 7 times per week.")
 dream_types = st.multiselect("Which terms best describe your dream?",
                              ("Adventure", "Romantic", "Mystical", "Conflict", "Transformation", "Exploration", "Resolution"), 
-                             help="Adventure - A dream that involves exploration, quests, or daring journeys.\n\nRomantic - A dream centered on love, affection, or emotional intimacy.\n\nMystical - A dream with elements of spirituality, magic, or otherworldly experiences.\n\nConflict - A dream involving struggles, arguments, or battles, either physical or emotional.\n\nTransformation - A dream about change, growth, or metamorphosis, either literal or symbolic.\n\nExploration - A dream that focuses on discovering new places, ideas, or aspects of oneself.\n\nResolution - A dream where unresolved issues or problems are addressed or solved.Choose at least one.")
+                             help="Adventure - A dream that involves exploration, quests, or daring journeys.\n\nRomantic - A dream centered on love, affection, or emotional intimacy.\n\nMystical - A dream with elements of spirituality, magic, or otherworldly experiences.\n\nConflict - A dream involving struggles, arguments, or battles, either physical or emotional.\n\nTransformation - A dream about change, growth, or metamorphosis, either literal or symbolic.\n\nExploration - A dream that focuses on discovering new places, ideas, or aspects of oneself.\n\nResolution - A dream where unresolved issues or problems are addressed or solved.")
 dream_objects = st.text_area("What are the objects you remember in your dream?", help="Any objects or even people.")
 dream_stories = st.text_area("Write your dream ✍", help="Type in the dream objects if you don't remember much.")
 
 if st.button("Discover My Dream"):
-    with st.spinner("Processing... Please wait."):
-        if age and occupation and sleeping_hours and stress_levels and dream_tendency and dream_types and dream_objects and dream_stories: 
+    if age and occupation and sleeping_hours and dream_types and dream_objects and dream_stories: 
+        with st.spinner("Processing... Please wait."):
             with st.expander("🌙 What Are Dreams?"):
                 st.write("""
                 Dreams are a series of thoughts, images, sensations, or emotions that occur during sleep. 
@@ -134,6 +134,6 @@ if st.button("Discover My Dream"):
                     st.error("Something went wrong. Please try again later.")
             except Exception as e:
                     st.error(f"An error occurred: {e}")
-    st.success("🌙 As you lay down to rest, may your dreams be as beautiful and magical as the stars in the night sky. Sleep well, and may tomorrow bring new adventures. Sweet dreams! 🌌")    
-else:
-    st.warning("Please fill in all fields.")
+        st.success("🌙 As you lay down to rest, may your dreams be as beautiful and magical as the stars in the night sky. Sleep well, and may tomorrow bring new adventures. Sweet dreams! 🌌")    
+    else:
+        st.warning("Please fill in all fields.")
